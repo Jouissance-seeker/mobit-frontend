@@ -6,8 +6,8 @@ export type TProduct = {
     discount: number,
     rating: number,
     colors: string[],
+    image: string,
     superDiscount: boolean,
     commentsLength: number,
     fastDelivery: boolean,
-    image: string,
 };

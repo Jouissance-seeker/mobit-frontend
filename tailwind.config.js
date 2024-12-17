@@ -25,8 +25,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'c-gradient-blue':
-          'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
+        'c-gradient-blue': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
       },
       colors: {
         'c-green': '#66BB6A',
@@ -51,12 +50,11 @@ module.exports = {
         'c-md': '0.875rem',
         'lc-g': '1rem',
         'c-xl': '1.125rem',
-        'c-2xl': '1.25rem'
+        'c-2xl': '1.25rem',
       },
     },
   },
   plugins: [
-    require('prettier-plugin-tailwindcss'),
     require('@tailwindcss/aspect-ratio'),
   ],
 };

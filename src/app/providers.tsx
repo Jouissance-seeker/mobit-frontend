@@ -5,7 +5,6 @@ import Header from '@/containers/template/header';
 import { usePathname } from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
 import { useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -21,20 +20,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       <NextTopLoader color={'#FFA726'} crawl={false} showSpinner={false} />
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        limit={1}
-        rtl={true}
-        closeButton={false}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover={true}
-        theme="light"
-      />
       <RecoilRoot>
         {!!isShowRootLayout ? (
           <>

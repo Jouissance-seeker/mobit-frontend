@@ -6,8 +6,7 @@ import { TProduct } from '@/types/routes/global/product';
 import convertNumber from '@/utils/convertNumber';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import { Navigation } from 'swiper';
-import 'swiper/css';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 

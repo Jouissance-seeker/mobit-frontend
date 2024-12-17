@@ -1,7 +1,6 @@
 import fontIransansx from '@/constants/fonts';
 import '@/styles/global/index.scss';
 import '@/styles/routes/global/index.scss';
-import 'react-toastify/dist/ReactToastify.css';
 import { Providers } from './providers';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
