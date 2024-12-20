@@ -238,7 +238,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                     return (
                       <li
                         key={item.id}
-                        className="mr-2 border-r border-gray-200 border-opacity-60 py-1 [&:not(:last-child)]:border-b"
+                        className="border-opacity-60 border-r mr-2 py-1 border-gray-200 [&:not(:last-child)]:border-b"
                       >
                         <CategoryLevelOneWithSubCategory categoryData={item} />
                       </li>

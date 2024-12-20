@@ -34,11 +34,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         {!!isShowRootLayout ? (
           <>
             <Header />
-            <main
-              className={
-                'flex flex-col gap-7 pb-6 pt-[88px] transition-all duration-300 lg:py-7'
-              }
-            >
+            <main className="flex duration-300 gap-7 pb-6 pt-[88px] transition-all lg:py-7 flex-col">
               {children}
             </main>
             <Footer />

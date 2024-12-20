@@ -68,22 +68,14 @@ const HeroSlider: FC = (): JSX.Element => {
             className="group/hero-slider_navigation flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover/hero-slider:opacity-100"
             onClick={() => swiperRef.current.swiper.slidePrev()}
           >
-            <IconChevron
-              className={
-                'h-[11.5px] rotate-180 fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'
-              }
-            />
+            <IconChevron className="h-[11.5px] rotate-180 fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600" />
           </button>
           <div className="pagination" />
           <button
             className="group/hero-slider_navigation flex w-6 items-center justify-center rounded-[5px] bg-white opacity-0 transition-all duration-300 group-hover/hero-slider:opacity-100"
             onClick={() => swiperRef.current.swiper.slideNext()}
           >
-            <IconChevron
-              className={
-                'h-[11.5px] fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'
-              }
-            />
+            <IconChevron className="h-[11.5px] fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600" />
           </button>
         </div>
       </div>

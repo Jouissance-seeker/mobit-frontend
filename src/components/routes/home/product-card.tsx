@@ -69,7 +69,7 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
             return (
               <span
                 key={index}
-                className={'rounded-lg p-[3.5px]'}
+                className="rounded-lg p-[3.5px]"
                 style={{ backgroundColor: item }}
               />
             );

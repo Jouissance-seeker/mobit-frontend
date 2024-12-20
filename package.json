@@ -16,7 +16,6 @@
     "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "eslint": "8.40.0",
-    "eslint-config-next": "^15.1.0",
     "formik": "^2.4.6",
     "jotai": "^2.10.4",
     "jotai-devtools": "^0.10.1",
@@ -38,7 +37,24 @@
     "zod-formik-adapter": "^1.3.0"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.4",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.17.0",
+    "@next/eslint-plugin-next": "^15.1.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "eslint-config-next": "^15.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-tailwindcss": "^3.17.5",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "swiper": "^11.1.15"
   }

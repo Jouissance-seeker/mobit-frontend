@@ -110,9 +110,7 @@ const Form: FC = (): JSX.Element => {
         {/* submit btn */}
         <button
           type="submit"
-          className={
-            'mt-3 w-full rounded-[10px] bg-c-royal-blue p-4 text-c-md font-bold text-white'
-          }
+          className="mt-3 w-full rounded-[10px] bg-c-royal-blue p-4 text-c-md font-bold text-white"
         >
           {formikConstant.submit}
         </button>
