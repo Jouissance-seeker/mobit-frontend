@@ -4,7 +4,7 @@ import {
   IconHome,
   IconUser,
 } from '@/constants/icons';
-import useDetectScrollDirection from '@/hooks/detectScrollDirection';
+import useDetectScrollDirection from '@/hooks/detect-scroll-direction';
 import Link from 'next/link';
 import { FC } from 'react';
 

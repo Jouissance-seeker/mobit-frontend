@@ -1,4 +1,4 @@
-import { topCategoriesData } from '@/resources/routes/home/topCategoriesData';
+import { topCategoriesData } from '@/resources/routes/home/top-categories-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';

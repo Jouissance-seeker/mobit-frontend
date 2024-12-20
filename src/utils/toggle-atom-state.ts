@@ -1,7 +1,5 @@
-import { SetterOrUpdater } from 'recoil';
-
 interface IArgs {
-  setAtomState: SetterOrUpdater<boolean>;
+  setAtomState: any;
   type: 'show' | 'hide';
 }
 

@@ -1,15 +1,13 @@
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/is-show-humberger-menu';
 import { IconChevron, IconDiscountSquare, IconWindow } from '@/constants/icons';
 import IMAGES from '@/constants/images';
-import SkeletonMobileCategory from '@/constants/skeletons/template/header/mobile/category';
-import { APIfetchCategoryData } from '@/services/template/header/fetchCategoryData';
-import { TCategoryItem } from '@/types/template/header/categoryItem';
-import toggleAtomStateHandler from '@/utils/toggleAtomState';
+import { categoryData } from '@/resources/routes/template/header/category-data';
+import { TCategoryItem } from '@/types/template/header/category-item';
+import toggleAtomStateHandler from '@/utils/toggle-atom-state';
+import { useAtom } from 'jotai';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC, useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import useSWR from 'swr';
+import { FC, useState } from 'react';
 
 interface IPropsCategoryLevel {
   categoryData: TCategoryItem;
@@ -18,22 +16,7 @@ interface IPropsCategoryLevel {
 const HumbergerMenu: FC = (): JSX.Element => {
   // detect is-show humberger menu / hide humberger-menu handler
   const [atomStateIsShowHumbergerMenu, setAtomStateIsShowHumbergerMenu] =
-    useRecoilState<boolean>(atomIsShowHumbergerMenu);
-
-  // fetch category data (fetch after first show humberger menu)
-  const [firstShowHumbergerMenu, setFirstShowHumbergerMenu] = useState(false);
-  useEffect(() => {
-    if (atomStateIsShowHumbergerMenu) {
-      setFirstShowHumbergerMenu(true);
-    }
-  }, [atomStateIsShowHumbergerMenu]);
-  const { data: categoryData } = useSWR<TCategoryItem[] | null>(
-    firstShowHumbergerMenu ? 'categoryData' : null,
-    async () => {
-      const data = await APIfetchCategoryData();
-      return data || null;
-    },
-  );
+    useAtom(atomIsShowHumbergerMenu);
 
   // category level one with sub-category, category level two with sub-category
   const CategoryLevelOneWithSubCategory: FC<IPropsCategoryLevel> = ({
@@ -229,33 +212,28 @@ const HumbergerMenu: FC = (): JSX.Element => {
           </div>
         </div>
         <div className="mx-2 border-b border-gray-200">
-          {/* fetched category data ? render category list : show skeleton */}
-          {categoryData ? (
-            <div>
-              <div className={`flex justify-center overflow-hidden`}>
-                <div
-                  className={`minimal-scrollbar my-1.5 max-h-[calc(100vh_-_250px)] w-full justify-center pl-1 transition-all duration-500`}
-                >
-                  <ul>
-                    {categoryData.map((item: TCategoryItem) => {
-                      return (
-                        <li
-                          key={item.id}
-                          className="mr-2 border-r border-gray-200 border-opacity-60 py-1 [&:not(:last-child)]:border-b"
-                        >
-                          <CategoryLevelOneWithSubCategory
-                            categoryData={item}
-                          />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
+          <div>
+            <div className={`flex justify-center overflow-hidden`}>
+              <div
+                className={`minimal-scrollbar my-1.5 max-h-[calc(100vh_-_250px)] w-full justify-center pl-1 transition-all duration-500`}
+              >
+                <ul>
+                  {categoryData.map((item: TCategoryItem) => {
+                    return (
+                      <li
+                        key={item.id}
+                        className="mr-2 border-r border-gray-200 border-opacity-60 py-1 [&:not(:last-child)]:border-b"
+                      >
+                        <CategoryLevelOneWithSubCategory
+                          categoryData={item}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
-          ) : (
-            <SkeletonMobileCategory />
-          )}
+          </div>
         </div>
       </div>
     </div>

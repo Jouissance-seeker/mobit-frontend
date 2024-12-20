@@ -5,7 +5,7 @@ import {
   IconStar,
 } from '@/constants/icons';
 import { TProduct } from '@/types/routes/global/product';
-import convertNumber from '@/utils/convertNumber';
+import convertNumber from '@/utils/convert-number';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';

@@ -1,6 +1,6 @@
 'use client';
 
-import convertNumber from '@/utils/convertNumber';
+import convertNumber from '@/utils/convert-number';
 import { useFormik } from 'formik';
 import { FC, useEffect, useRef } from 'react';
 import { z } from 'zod';

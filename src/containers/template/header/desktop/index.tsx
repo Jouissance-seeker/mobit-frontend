@@ -1,5 +1,5 @@
-import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/isShowCategoryList';
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
+import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/is-show-category-list';
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
 import {
   IconCart,
   IconDiscountSquare,
@@ -8,22 +8,22 @@ import {
   IconWindow,
 } from '@/constants/icons';
 import IMAGES from '@/constants/images';
-import toggleAtomStateHandler from '@/utils/toggleAtomState';
+import toggleAtomStateHandler from '@/utils/toggle-atom-state';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import CategoryList from './categoryList';
+import CategoryList from './category-list';
+import { useAtom } from 'jotai';
 
 const Desktop: FC = (): JSX.Element => {
   // show and hide search result handler
-  const setAtomStateIsShowSearchResult = useSetRecoilState<boolean>(
+  const [,setAtomStateIsShowSearchResult] = useAtom(
     atomIsShowSearchResult,
   );
 
   // show and hide category list handler / detect isShow category list
   const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
-    useRecoilState<boolean>(atomIsShowCategoryList);
+    useAtom<boolean>(atomIsShowCategoryList);
 
   return (
     <div className="hidden w-full bg-c-gradient-blue py-3 lg:block">

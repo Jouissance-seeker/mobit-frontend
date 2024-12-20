@@ -4,24 +4,23 @@ import {
   IconThreeDots,
   IconUser,
 } from '@/constants/icons';
-import { useSetRecoilState } from 'recoil';
-
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/isShowHumbergerMenu';
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
+import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/is-show-humberger-menu';
 import IMAGES from '@/constants/images';
-import useDetectScrollDirection from '@/hooks/detectScrollDirection';
-import toggleAtomStateHandler from '@/utils/toggleAtomState';
+import useDetectScrollDirection from '@/hooks/detect-scroll-direction';
+import toggleAtomStateHandler from '@/utils/toggle-atom-state';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
-import HumbergerMenu from './humbergerMenu';
+import HumbergerMenu from './humberger-menu';
+import { useAtom } from 'jotai';
 
 const Mobile: FC = (): JSX.Element => {
   // detect focused search field
   const [isFocusSearchField, setIsFocusSearchField] = useState(false);
 
   // show and hide search result handler
-  const setAtomStateIsShowSearchResult = useSetRecoilState<boolean>(
+  const [, setAtomStateIsShowSearchResult] = useAtom(
     atomIsShowSearchResult,
   );
   const showAndHideSearchResultHandler = (args: { type: 'show' | 'hide' }) => {
@@ -33,7 +32,7 @@ const Mobile: FC = (): JSX.Element => {
   };
 
   // show humberger-menu handler
-  const setAtomStateIsShowHumbergerMenu = useSetRecoilState<boolean>(
+  const [, setAtomStateIsShowHumbergerMenu] = useAtom<boolean>(
     atomIsShowHumbergerMenu,
   );
 

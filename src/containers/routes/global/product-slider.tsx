@@ -1,9 +1,9 @@
 'use client';
 
-import ProductCard from '@/components/routes/home/productCard';
+import ProductCard from '@/components/routes/home/product-card';
 import { IconChevron, IconDiscountSquare } from '@/constants/icons';
 import { TProduct } from '@/types/routes/global/product';
-import convertNumber from '@/utils/convertNumber';
+import convertNumber from '@/utils/convert-number';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { Navigation } from 'swiper/modules';

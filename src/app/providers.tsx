@@ -4,8 +4,9 @@ import Footer from '@/containers/template/footer';
 import Header from '@/containers/template/header';
 import { usePathname } from 'next/navigation';
 import NextTopLoader from 'nextjs-toploader';
-import { useEffect, useState } from 'react';
-import { RecoilRoot } from 'recoil';
+import { ReactNode, useEffect, useState } from 'react';
+import { Provider as JotaiProvider } from 'jotai';
+import { DevTools as JotaiDevTools } from 'jotai-devtools';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   // detect isShow root layout
@@ -17,10 +18,21 @@ export function Providers({ children }: { children: React.ReactNode }) {
     setIsShowRootLayout(pathname === '/auth' ? false : true);
   }, [pathname]);
 
+  const Jotai = ({ children }: {
+    children: ReactNode;
+  }) => {
+    return (
+      <JotaiProvider>
+        <JotaiDevTools />
+        {children}
+      </JotaiProvider>
+    );
+  };  
+
   return (
     <>
       <NextTopLoader color={'#FFA726'} crawl={false} showSpinner={false} />
-      <RecoilRoot>
+      <Jotai>
         {!!isShowRootLayout ? (
           <>
             <Header />
@@ -34,7 +46,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         ) : (
           <main>{children}</main>
         )}
-      </RecoilRoot>
+      </Jotai>
     </>
   );
 }

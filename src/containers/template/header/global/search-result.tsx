@@ -1,13 +1,11 @@
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/isShowSearchResult';
+import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
+import { useAtom } from 'jotai';
 import React, { FC } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
-import { useRecoilValue } from 'recoil';
 
 const SearchResult: FC = (): JSX.Element => {
   // detect is-show search result
-  const atomStateIsShowSearchResult = useRecoilValue<boolean>(
-    atomIsShowSearchResult,
-  );
+  const [atomStateIsShowSearchResult] = useAtom(atomIsShowSearchResult);
 
   return (
     <section

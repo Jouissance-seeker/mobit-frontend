@@ -1,9 +1,8 @@
-import ProductCardSlider from '@/containers/routes/global/productSlider';
-import HeroSlider from '@/containers/routes/home/heroSlider';
-import MobileBrandSlider from '@/containers/routes/home/mobileBrandSlider';
-import TopCategories from '@/containers/routes/home/topCategories';
-import { APIfetchProductSliderData } from '@/services/routes/global/fetchProductSliderData';
-import '@/styles/routes/home/index.scss';
+import ProductCardSlider from '@/containers/routes/global/product-slider';
+import HeroSlider from '@/containers/routes/home/hero-slider';
+import MobileBrandSlider from '@/containers/routes/home/mobile-brand-slider';
+import TopCategories from '@/containers/routes/home/top-categories';
+import { productSliderData } from '@/resources/routes/home/product-slider-data';
 import { Metadata } from 'next';
 
 export const revalidate = 0;
@@ -17,38 +16,26 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const [
-    specialOfferProductSliderData,
-    mostVisitedProductSliderData,
-    newProductsProductSliderData,
-    newPhonesProductSliderData,
-  ] = await Promise.all([
-    APIfetchProductSliderData({ type: 'special-offer' }),
-    APIfetchProductSliderData({ type: 'most-visited' }),
-    APIfetchProductSliderData({ type: 'new-products' }),
-    APIfetchProductSliderData({ type: 'new-phones' }),
-  ]);
-
   return (
     <>
       <HeroSlider />
       <TopCategories />
       <ProductCardSlider
         type={'special-offer'}
-        data={specialOfferProductSliderData}
+        data={productSliderData}
       />
       <MobileBrandSlider />
       <ProductCardSlider
         type={'most-visited'}
-        data={mostVisitedProductSliderData}
+        data={productSliderData}
       />
       <ProductCardSlider
         type={'new-phones'}
-        data={newPhonesProductSliderData}
+        data={productSliderData}
       />
       <ProductCardSlider
         type={'new-products'}
-        data={newProductsProductSliderData}
+        data={productSliderData}
       />
     </>
   );

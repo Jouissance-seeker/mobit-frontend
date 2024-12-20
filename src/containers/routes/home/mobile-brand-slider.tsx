@@ -1,6 +1,6 @@
 'use client';
 
-import { mobileBrandSliderData } from '@/resources/routes/home/mobileBrandSliderData';
+import { mobileBrandSliderData } from '@/resources/routes/home/mobile-brand-slider-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';

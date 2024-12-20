@@ -1,14 +1,14 @@
 // global
 import { default as Chevron } from '@/constants/icons/global/chevron';
 import { default as Discount } from '@/constants/icons/global/discount';
-import { default as DiscountSquare } from '@/constants/icons/global/discountSquare';
-import { default as FastDelivery } from '@/constants/icons/global/fastDelivery';
+import { default as DiscountSquare } from '@/constants/icons/global/discount-square';
+import { default as FastDelivery } from '@/constants/icons/global/fast-delivery';
 import { default as Star } from '@/constants/icons/global/star';
 // template/global
 import { default as User } from '@/constants/icons/template/global/user';
 // template/header
 import { default as Magnifier } from '@/constants/icons/template/header/magnifier';
-import { default as ThreeDots } from '@/constants/icons/template/header/threeDots';
+import { default as ThreeDots } from '@/constants/icons/template/header/three-dots';
 import { default as Window } from '@/constants/icons/template/header/window';
 // template/footer
 import { default as Home } from '@/constants/icons/template/footer/home';

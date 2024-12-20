@@ -10,8 +10,8 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { IconChevron } from '@/constants/icons';
-import useDetectScreenSize from '@/hooks/detectScreenSize';
-import { heroSliderData } from '@/resources/routes/home/heroSliderData';
+import useDetectScreenSize from '@/hooks/detect-screen-size';
+import { heroSliderData } from '@/resources/routes/home/hero-slider-data';
 
 const HeroSlider: FC = (): JSX.Element => {
   const swiperRef = useRef<any>(null);
