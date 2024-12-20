@@ -4,8 +4,8 @@ import {
   IconThreeDots,
   IconUser,
 } from '@/constants/icons';
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/is-show-humberger-menu';
+import { atomIsShowSearchResult } from '@/atoms/is-show-search-result';
+import { atomIsShowHumbergerMenu } from '@/atoms/is-show-humberger-menu';
 import IMAGES from '@/constants/images';
 import useDetectScrollDirection from '@/hooks/detect-scroll-direction';
 import toggleAtomStateHandler from '@/utils/toggle-atom-state';
@@ -21,9 +21,7 @@ const Mobile: FC = (): JSX.Element => {
   const [isFocusSearchField, setIsFocusSearchField] = useState(false);
 
   // show and hide search result handler
-  const [, setAtomStateIsShowSearchResult] = useAtom(
-    atomIsShowSearchResult,
-  );
+  const [, setAtomStateIsShowSearchResult] = useAtom(atomIsShowSearchResult);
   const showAndHideSearchResultHandler = (args: { type: 'show' | 'hide' }) => {
     setIsFocusSearchField(args.type === 'hide' ? false : true);
     toggleAtomStateHandler({
@@ -33,9 +31,7 @@ const Mobile: FC = (): JSX.Element => {
   };
 
   // show humberger-menu handler
-  const [, setAtomStateIsShowHumbergerMenu] = useAtom(
-    atomIsShowHumbergerMenu,
-  );
+  const [, setAtomStateIsShowHumbergerMenu] = useAtom(atomIsShowHumbergerMenu);
 
   // detect scroll direction for hide search input after scroll to bottom
   const detectedScrollDirection = useDetectScrollDirection();
@@ -74,27 +70,20 @@ const Mobile: FC = (): JSX.Element => {
         </div>
         {/* search filed */}
         <div
-          className={
-            cn(
-              'absolute left-0 right-0 transition-all duration-500',
-              {
-                'top-[53px]': detectedScrollDirection === 'top',
-                '-top-28': detectedScrollDirection === 'bottom',
-              }
-            )
-          }
+          className={cn('absolute left-0 right-0 transition-all duration-500', {
+            'top-[53px]': detectedScrollDirection === 'top',
+            '-top-28': detectedScrollDirection === 'bottom',
+          })}
         >
           <div className="container">
             <div
-              className={
-                cn(
-                  'container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-c-royal-blue',
-                  {
-                    '-top-10 bg-c-gray-100': isFocusSearchField,
-                    'top-0 bg-[#3F41C5]': !isFocusSearchField,
-                  }
-                )
-              }
+              className={cn(
+                'container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-c-royal-blue',
+                {
+                  '-top-10 bg-c-gray-100': isFocusSearchField,
+                  'top-0 bg-[#3F41C5]': !isFocusSearchField,
+                },
+              )}
             >
               <div className="flex w-5 justify-center">
                 {isFocusSearchField ? (
@@ -113,15 +102,10 @@ const Mobile: FC = (): JSX.Element => {
                 onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
                 spellCheck={false}
                 placeholder="جستجو در مبیت ..."
-                className={
-                  cn(
-                    'w-full text-c-md placeholder-gray-200',
-                    {
-                      'placeholder-gray-400': isFocusSearchField,
-                      'text-c-gray-200': !isFocusSearchField,
-                    }
-                  )
-                }
+                className={cn('w-full text-c-md placeholder-gray-200', {
+                  'placeholder-gray-400': isFocusSearchField,
+                  'text-c-gray-200': !isFocusSearchField,
+                })}
               />
             </div>
           </div>

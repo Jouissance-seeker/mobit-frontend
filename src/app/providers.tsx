@@ -18,16 +18,14 @@ export function Providers({ children }: { children: React.ReactNode }) {
     setIsShowRootLayout(pathname === '/auth' ? false : true);
   }, [pathname]);
 
-  const Jotai = ({ children }: {
-    children: ReactNode;
-  }) => {
+  const Jotai = ({ children }: { children: ReactNode }) => {
     return (
       <JotaiProvider>
         <JotaiDevTools />
         {children}
       </JotaiProvider>
     );
-  };  
+  };
 
   return (
     <>
@@ -37,7 +35,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <>
             <Header />
             <main
-              className={'flex flex-col gap-7 pb-6 pt-[88px] transition-all duration-300 lg:py-7'}
+              className={
+                'flex flex-col gap-7 pb-6 pt-[88px] transition-all duration-300 lg:py-7'
+              }
             >
               {children}
             </main>

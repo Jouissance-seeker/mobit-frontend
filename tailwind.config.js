@@ -25,7 +25,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'c-gradient-blue': 'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
+        'c-gradient-blue':
+          'linear-gradient(to right, #2124b5, #3b3ece, #2124b5)',
       },
       colors: {
         'c-green': '#66BB6A',
@@ -54,7 +55,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/aspect-ratio'),
-  ],
+  plugins: [require('@tailwindcss/aspect-ratio')],
 };

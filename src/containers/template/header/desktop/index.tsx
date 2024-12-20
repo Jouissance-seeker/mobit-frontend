@@ -1,5 +1,5 @@
-import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/is-show-category-list';
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
+import { atomIsShowCategoryList } from '@/atoms/is-show-category-list';
+import { atomIsShowSearchResult } from '@/atoms/is-show-search-result';
 import {
   IconCart,
   IconDiscountSquare,
@@ -21,8 +21,9 @@ const Desktop: FC = (): JSX.Element => {
   const [, setAtomStateIsShowSearchResult] = useAtom(atomIsShowSearchResult);
 
   // show and hide category list handler / detect isShow category list
-  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] =
-    useAtom(atomIsShowCategoryList);
+  const [atomStateIsShowCategoryList, setAtomStateIsShowCategoryList] = useAtom(
+    atomIsShowCategoryList,
+  );
 
   return (
     <div className="hidden w-full bg-c-gradient-blue py-3 lg:block">
@@ -56,7 +57,7 @@ const Desktop: FC = (): JSX.Element => {
               <div
                 className={cn(
                   'relative flex h-5 cursor-pointer items-center gap-2 px-1 text-c-sm font-bold text-white after:absolute after:-bottom-[18px] after:left-0 after:right-0 after:block after:h-[3px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:text-white hover:after:w-full',
-                  { 'after:w-full': atomStateIsShowCategoryList }
+                  { 'after:w-full': atomStateIsShowCategoryList },
                 )}
               >
                 <IconWindow className={'fill-white'} />
@@ -77,9 +78,7 @@ const Desktop: FC = (): JSX.Element => {
         </div>
         {/* search field */}
         <div className="w-[350px] xl:w-[400px]">
-          <div
-            className="container flex items-center gap-2.5 rounded-xl border-2 border-transparent bg-[#4E51D3] p-[11px] text-white transition-all duration-200 focus-within:border-white"
-          >
+          <div className="container flex items-center gap-2.5 rounded-xl border-2 border-transparent bg-[#4E51D3] p-[11px] text-white transition-all duration-200 focus-within:border-white">
             <div className="relative flex w-5 justify-center after:absolute after:-top-1.5 after:left-0 after:right-7 after:h-8 after:w-[1px] after:bg-white">
               <IconMagnifier />
             </div>

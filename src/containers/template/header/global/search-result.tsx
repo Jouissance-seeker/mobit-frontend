@@ -1,4 +1,4 @@
-import { atomIsShowSearchResult } from '@/atoms/template/header/global/is-show-search-result';
+import { atomIsShowSearchResult } from '@/atoms/is-show-search-result';
 import { cn } from '@/utils/cn';
 import { useAtom } from 'jotai';
 import React, { FC } from 'react';
@@ -15,7 +15,7 @@ const SearchResult: FC = (): JSX.Element => {
         {
           'visible opacity-100': atomStateIsShowSearchResult,
           'invisible opacity-0': !atomStateIsShowSearchResult,
-        }
+        },
       )}
     >
       <div className="mt-[75px] h-full lg:mt-0">

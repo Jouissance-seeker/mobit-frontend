@@ -57,9 +57,13 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         )}
         {/* colors */}
         <div
-          className={cn('absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-c-gray-200 p-[7px]', {
-              'pl-5 after:absolute after:left-[6px] after:top-0 after:font-medium after:text-c-gray-500 after:content-["_+"]': !!(props.data.colors.length > 3)
-            })}
+          className={cn(
+            'absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-c-gray-200 p-[7px]',
+            {
+              'pl-5 after:absolute after:left-[6px] after:top-0 after:font-medium after:text-c-gray-500 after:content-["_+"]':
+                !!(props.data.colors.length > 3),
+            },
+          )}
         >
           {props.data.colors.slice(0, 3).map((item, index) => {
             return (

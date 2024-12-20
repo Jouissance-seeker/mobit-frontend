@@ -69,7 +69,9 @@ const HeroSlider: FC = (): JSX.Element => {
             onClick={() => swiperRef.current.swiper.slidePrev()}
           >
             <IconChevron
-              className={'h-[11.5px] rotate-180 fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'}
+              className={
+                'h-[11.5px] rotate-180 fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'
+              }
             />
           </button>
           <div className="pagination" />
@@ -78,7 +80,9 @@ const HeroSlider: FC = (): JSX.Element => {
             onClick={() => swiperRef.current.swiper.slideNext()}
           >
             <IconChevron
-              className={'h-[11.5px] fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'}
+              className={
+                'h-[11.5px] fill-c-gray-400 group-hover/hero-slider_navigation:fill-c-gray-600'
+              }
             />
           </button>
         </div>

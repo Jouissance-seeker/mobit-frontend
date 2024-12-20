@@ -71,7 +71,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
           {
             'bg-c-red': props.type === 'special-offer',
             'bg-c-gray-100': props.type !== 'special-offer',
-          }
+          },
         )}
       >
         {/* title */}
@@ -103,7 +103,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
               {
                 'visible opacity-100': timeLeftFromDay,
                 'invisible opacity-0': !timeLeftFromDay,
-              }
+              },
             )}
           >
             <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-c-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-c-xl lg:font-black">
@@ -145,7 +145,7 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
           href={switchSeeAllReference(props.type)}
           className={cn('items-center gap-1.5 lg:gap-2', {
             'hidden sm:flex': props.type === 'special-offer',
-            'flex': props.type !== 'special-offer',
+            flex: props.type !== 'special-offer',
           })}
         >
           <span

@@ -1,4 +1,4 @@
-import { atomIsShowHumbergerMenu } from '@/atoms/template/header/mobile/is-show-humberger-menu';
+import { atomIsShowHumbergerMenu } from '@/atoms/is-show-humberger-menu';
 import { IconChevron, IconDiscountSquare, IconWindow } from '@/constants/icons';
 import IMAGES from '@/constants/images';
 import { categoryData } from '@/resources/routes/template/header/category-data';
@@ -42,25 +42,20 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            className={cn(
-              'h-[13px] fill-c-gray-300',
-              {
-                '-rotate-90': isOpenSubCategory,
-                'rotate-90': !isOpenSubCategory,
-              }
-            )}
+            className={cn('h-[13px] fill-c-gray-300', {
+              '-rotate-90': isOpenSubCategory,
+              'rotate-90': !isOpenSubCategory,
+            })}
           />
         </button>
         <ul
-          className={
-            cn(
-              'pr-3 text-c-xs font-bold text-c-gray-400 transition-all duration-300',
-              {
-                'visible opacity-100': isOpenSubCategory,
-                'invisible h-0 overflow-hidden opacity-0': !isOpenSubCategory,
-              }
-            )
-          }
+          className={cn(
+            'pr-3 text-c-xs font-bold text-c-gray-400 transition-all duration-300',
+            {
+              'visible opacity-100': isOpenSubCategory,
+              'invisible h-0 overflow-hidden opacity-0': !isOpenSubCategory,
+            },
+          )}
         >
           <Link href={props.categoryData.refrence}>
             <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-c-gray-400 text-opacity-80">
@@ -110,25 +105,20 @@ const HumbergerMenu: FC = (): JSX.Element => {
             <span className="truncate pl-1">{props.categoryData.name}</span>
           </div>
           <IconChevron
-            className={cn(
-              'h-[13px] fill-c-gray-300',
-              {
-                '-rotate-90': isOpenSubCategory,
-                'rotate-90': !isOpenSubCategory,
-              }
-            )}
+            className={cn('h-[13px] fill-c-gray-300', {
+              '-rotate-90': isOpenSubCategory,
+              'rotate-90': !isOpenSubCategory,
+            })}
           />
         </button>
         <ul
-          className={
-            cn(
-              'pr-3 text-c-xs font-bold text-c-gray-400 transition-all duration-300',
-              {
-                'visible opacity-100': isOpenSubCategory,
-                'invisible h-0 overflow-hidden opacity-0': !isOpenSubCategory,
-              }
-            )
-          }
+          className={cn(
+            'pr-3 text-c-xs font-bold text-c-gray-400 transition-all duration-300',
+            {
+              'visible opacity-100': isOpenSubCategory,
+              'invisible h-0 overflow-hidden opacity-0': !isOpenSubCategory,
+            },
+          )}
         >
           <Link href={props.categoryData.refrence}>
             <li className="border-b border-r border-gray-200 border-opacity-60 px-3 py-2 text-c-gray-400 text-opacity-70">
@@ -161,15 +151,10 @@ const HumbergerMenu: FC = (): JSX.Element => {
 
   return (
     <div
-      className={
-        cn(
-          'modal_overlay bottom-0 left-0 right-0 top-0',
-          {
-            'visible bg-black/20': atomStateIsShowHumbergerMenu,
-            'invisible opacity-0': !atomStateIsShowHumbergerMenu,
-          }
-        )
-      }
+      className={cn('modal_overlay bottom-0 left-0 right-0 top-0', {
+        'visible bg-black/20': atomStateIsShowHumbergerMenu,
+        'invisible opacity-0': !atomStateIsShowHumbergerMenu,
+      })}
     >
       <div
         onClick={() =>
@@ -181,15 +166,13 @@ const HumbergerMenu: FC = (): JSX.Element => {
         className="fixed bottom-0 left-0 right-0 top-0"
       ></div>
       <div
-        className={
-          cn(
-            'fixed bottom-0 left-0 right-0 top-0 h-screen w-[270px] bg-white font-bold transition-all duration-500',
-            {
-              'translate-x-0': atomStateIsShowHumbergerMenu,
-              '!translate-x-80': !atomStateIsShowHumbergerMenu,
-            }
-          )
-        }
+        className={cn(
+          'fixed bottom-0 left-0 right-0 top-0 h-screen w-[270px] bg-white font-bold transition-all duration-500',
+          {
+            'translate-x-0': atomStateIsShowHumbergerMenu,
+            '!translate-x-80': !atomStateIsShowHumbergerMenu,
+          },
+        )}
       >
         {/* logo and close btn */}
         <div className="flex w-full items-center bg-c-gradient-blue p-[18px]">
@@ -217,7 +200,9 @@ const HumbergerMenu: FC = (): JSX.Element => {
         {/* amazing discount */}
         <Link href="/">
           <div
-            className={'mx-2 flex items-cente</Link>r justify-between border-b border-gray-200 px-1 py-3.5'}
+            className={
+              'mx-2 flex items-cente</Link>r justify-between border-b border-gray-200 px-1 py-3.5'
+            }
           >
             <div className="flex i</div>tems-center gap-2.5">
               <IconDiscountSquare
@@ -231,18 +216,22 @@ const HumbergerMenu: FC = (): JSX.Element => {
         </Link>
         {/* category list */}
         <div
-          className={'mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5'}
+          className={
+            'mx-2 flex items-center justify-between border-b border-gray-200 px-1 py-3.5'
+          }
         >
           <div className="flex items-center gap-2.5">
             <IconWindow className={'fill-c-royal-blue'} />
-            <p className="text-c-sm font-bold text-c-gray-500">دسته بندی ها</p>
+            <p className="!text-c-sm font-bold text-c-gray-500">دسته بندی ها</p>
           </div>
         </div>
         <div className="mx-2 border-b border-gray-200">
           <div>
             <div className={'flex justify-center overflow-hidden'}>
               <div
-                className={'minimal-scrollbar my-1.5 max-h-[calc(100vh_-_250px)] w-full justify-center pl-1 transition-all duration-500'}
+                className={
+                  'minimal-scrollbar my-1.5 max-h-[calc(100vh_-_250px)] w-full justify-center pl-1 transition-all duration-500'
+                }
               >
                 <ul>
                   {categoryData.map((item: TCategoryItem) => {
@@ -251,9 +240,7 @@ const HumbergerMenu: FC = (): JSX.Element => {
                         key={item.id}
                         className="mr-2 border-r border-gray-200 border-opacity-60 py-1 [&:not(:last-child)]:border-b"
                       >
-                        <CategoryLevelOneWithSubCategory
-                          categoryData={item}
-                        />
+                        <CategoryLevelOneWithSubCategory categoryData={item} />
                       </li>
                     );
                   })}

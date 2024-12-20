@@ -15,7 +15,7 @@ const MobileBrandSlider: FC = (): JSX.Element => {
       <Swiper
         slidesPerView={2}
         id="mobile-brand-slider"
-        className='!static'
+        className="!static"
         navigation
         modules={[Navigation]}
         breakpoints={{
@@ -32,9 +32,7 @@ const MobileBrandSlider: FC = (): JSX.Element => {
       >
         {mobileBrandSliderData.map((item, index) => {
           return (
-            <SwiperSlide
-              key={index}
-            >
+            <SwiperSlide key={index}>
               <Link
                 href={item.reference}
                 className="flex flex-col items-center"

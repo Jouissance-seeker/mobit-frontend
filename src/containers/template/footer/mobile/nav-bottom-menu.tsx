@@ -48,26 +48,26 @@ const NavBottomMenu: FC = (): JSX.Element => {
   return (
     <nav
       className={cn(
-      'fixed z-20 w-full border-t border-gray-100 bg-white transition-all duration-500',
-      {
-        'bottom-0': detectedScrollDirection === 'top',
-        '-bottom-40': detectedScrollDirection !== 'top',
-      }
+        'fixed z-20 w-full border-t border-gray-100 bg-white transition-all duration-500',
+        {
+          'bottom-0': detectedScrollDirection === 'top',
+          '-bottom-40': detectedScrollDirection !== 'top',
+        },
       )}
     >
       <div className="container flex w-full justify-around py-2">
-      {navBottomItems.map((item, index) => {
-        return (
-        <Link
-          key={index}
-          href={item.url}
-          className="flex flex-col items-center justify-between gap-1 text-c-gray-400"
-        >
-          <div className="h-5.5">{item.icon}</div>
-          <p className="text-c-2xs font-medium">{item.text}</p>
-        </Link>
-        );
-      })}
+        {navBottomItems.map((item, index) => {
+          return (
+            <Link
+              key={index}
+              href={item.url}
+              className="flex flex-col items-center justify-between gap-1 text-c-gray-400"
+            >
+              <div className="h-5.5">{item.icon}</div>
+              <p className="text-c-2xs font-medium">{item.text}</p>
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

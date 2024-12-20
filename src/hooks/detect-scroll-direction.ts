@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function useDetectScrollDirection(): 'top' | 'bottom' | null {
-  const [detectedScrollDirection, setDetectedScrollDirection] = useState<'top' | 'bottom' | null>('top');
+  const [detectedScrollDirection, setDetectedScrollDirection] = useState<
+    'top' | 'bottom' | null
+  >('top');
   const scrollOldValueRef = useRef(0);
   useEffect(() => {
     const handleScroll = (): void => {
       const scrollNewValue = window.pageYOffset;
-      if (scrollOldValueRef.current - scrollNewValue < 0 && scrollNewValue > 55) {
+      if (
+        scrollOldValueRef.current - scrollNewValue < 0 &&
+        scrollNewValue > 55
+      ) {
         if (detectedScrollDirection !== 'bottom') {
           setDetectedScrollDirection('bottom');
         }

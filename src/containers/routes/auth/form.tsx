@@ -75,8 +75,9 @@ const Form: FC = (): JSX.Element => {
               className={cn(
                 'w-full truncate rounded-[10px] bg-c-gray-100 p-3 ring-transparent text-c-md font-semibold ring-[1px] transition-all duration-300 placeholder:text-c-sm focus:bg-white focus:ring-[2px] focus:!ring-c-royal-blue',
                 {
-                  'ring-red-400': formik.errors.phoneNumber && formik.touched.phoneNumber,
-                }
+                  'ring-red-400':
+                    formik.errors.phoneNumber && formik.touched.phoneNumber,
+                },
               )}
               onChange={({
                 target: { value: inputValue },
@@ -109,7 +110,9 @@ const Form: FC = (): JSX.Element => {
         {/* submit btn */}
         <button
           type="submit"
-          className={'mt-3 w-full rounded-[10px] bg-c-royal-blue p-4 text-c-md font-bold text-white'}
+          className={
+            'mt-3 w-full rounded-[10px] bg-c-royal-blue p-4 text-c-md font-bold text-white'
+          }
         >
           {formikConstant.submit}
         </button>

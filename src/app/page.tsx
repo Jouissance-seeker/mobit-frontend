@@ -20,23 +20,11 @@ export default async function Page() {
     <>
       <HeroSlider />
       <TopCategories />
-      <ProductCardSlider
-        type={'special-offer'}
-        data={productSliderData}
-      />
+      <ProductCardSlider type={'special-offer'} data={productSliderData} />
       <MobileBrandSlider />
-      <ProductCardSlider
-        type={'most-visited'}
-        data={productSliderData}
-      />
-      <ProductCardSlider
-        type={'new-phones'}
-        data={productSliderData}
-      />
-      <ProductCardSlider
-        type={'new-products'}
-        data={productSliderData}
-      />
+      <ProductCardSlider type={'most-visited'} data={productSliderData} />
+      <ProductCardSlider type={'new-phones'} data={productSliderData} />
+      <ProductCardSlider type={'new-products'} data={productSliderData} />
     </>
   );
 }

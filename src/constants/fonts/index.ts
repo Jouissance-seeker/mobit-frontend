@@ -1,4 +1,4 @@
-import LocalFont from "next/font/local";
+import LocalFont from 'next/font/local';
 
 const fontIransansx = LocalFont({
   src: [
@@ -49,8 +49,8 @@ const fontIransansx = LocalFont({
     },
   ],
   variable: '--font-iransansx',
-  style: "normal",
-  display: "block",
+  style: 'normal',
+  display: 'block',
 });
 
 export default fontIransansx;

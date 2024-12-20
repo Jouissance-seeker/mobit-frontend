@@ -28,8 +28,8 @@ const IMAGES = {
       bottomBackground:
         require('@/assets/images/routes/auth/bottom-background.svg').default
           .src,
-      logoPurple: require('@/assets/images/routes/auth/logo-purple.svg')
-        .default.src,
+      logoPurple: require('@/assets/images/routes/auth/logo-purple.svg').default
+        .src,
     },
   },
 };
