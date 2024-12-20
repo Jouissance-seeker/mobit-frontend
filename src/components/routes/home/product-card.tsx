@@ -5,6 +5,7 @@ import {
   IconStar,
 } from '@/constants/icons';
 import { TProduct } from '@/types/routes/global/product';
+import { cn } from '@/utils/cn';
 import convertNumber from '@/utils/convert-number';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -56,16 +57,15 @@ const ProductCard: FC<IProps> = ({ ...props }): JSX.Element => {
         )}
         {/* colors */}
         <div
-          className={`absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-c-gray-200 p-[7px] ${
-            !!(props.data.colors.length > 3) &&
-            'pl-5 after:absolute after:left-[6px] after:top-0 after:font-medium after:text-c-gray-500 after:content-["_+"]'
-          }`}
+          className={cn('absolute bottom-2.5 right-2.5 flex gap-[5px] rounded-[5px] bg-c-gray-200 p-[7px]', {
+              'pl-5 after:absolute after:left-[6px] after:top-0 after:font-medium after:text-c-gray-500 after:content-["_+"]': !!(props.data.colors.length > 3)
+            })}
         >
           {props.data.colors.slice(0, 3).map((item, index) => {
             return (
               <span
                 key={index}
-                className={`rounded-lg p-[3.5px]`}
+                className={'rounded-lg p-[3.5px]'}
                 style={{ backgroundColor: item }}
               />
             );

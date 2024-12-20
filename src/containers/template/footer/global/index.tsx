@@ -19,7 +19,7 @@ const Global: FC = (): JSX.Element => {
             className="flex items-center gap-2 rounded-t-lg bg-c-gray-100 px-3.5 py-1.5 text-c-xs font-bold text-c-gray-500 lg:text-c-sm"
           >
             <p>بازگشت به بالا</p>
-            <IconChevron className={`h-[11.5px] -rotate-90 fill-c-gray-600`} />
+            <IconChevron className={'h-[11.5px] -rotate-90 fill-c-gray-600'} />
           </button>
         </div>
         <div className="flex flex-col items-center gap-3 rounded-xl bg-c-gray-100 p-5 sm:flex-row sm:justify-between sm:p-3">

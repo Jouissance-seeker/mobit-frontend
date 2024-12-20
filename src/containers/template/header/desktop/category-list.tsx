@@ -1,6 +1,7 @@
 import { atomIsShowCategoryList } from '@/atoms/template/header/desktop/is-show-category-list';
 import { categoryData } from '@/resources/routes/template/header/category-data';
 import { TCategoryItem } from '@/types/template/header/category-item';
+import { cn } from '@/utils/cn';
 import { useAtom } from 'jotai';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,55 +9,41 @@ import { FC, Fragment, useState } from 'react';
 
 const CategoryList: FC = (): JSX.Element => {
   // detect is-show category list
-  const [atomStateIsShowCategoryList] =
-    useAtom(atomIsShowCategoryList);
+  const [atomStateIsShowCategoryList] = useAtom(atomIsShowCategoryList);
 
   // for Detect current hovered category
-  const [activedCategoryData, setActivedCategoryData] =
-    useState<TCategoryItem>(categoryData[0]!);
+  const [activedCategoryData, setActivedCategoryData] = useState<TCategoryItem>(categoryData[0]!);
 
   return (
     <section
-      className={`absolute top-[68.5px] ${
-        atomStateIsShowCategoryList
-          ? 'visible opacity-100'
-          : 'invisible opacity-0'
-      }`}
+      className={cn('absolute top-[68.5px]', {
+        'visible opacity-100': atomStateIsShowCategoryList,
+        'invisible opacity-0': !atomStateIsShowCategoryList,
+      })}
     >
       {/* if fetched category data and set default activedCategory level one (index 0) ? render category list : show skeleton loader */}
       <div
-        className={`flex rounded-b-lg border border-x border-b border-gray-100 bg-white transition-all duration-300 after:absolute h-[370px] after:-top-[22px] after:h-[23px] after:w-[200px]`}
+        className={'flex rounded-b-lg border border-x border-b border-gray-100 bg-white transition-all duration-300 after:absolute h-[370px] after:-top-[22px] after:h-[23px] after:w-[200px]'}
       >
         {/* category level one */}
-        <div
-          id={'header-desktop_category-level-one'}
-          className="h-fit w-48 border-l py-2"
-        >
+        <div id={'header-desktop_category-level-one'} className="h-fit w-48 border-l py-2">
           {categoryData?.map((item: TCategoryItem) => {
             return (
               <Link
                 href={item.refrence}
                 onMouseEnter={() => setActivedCategoryData(item)}
                 key={item.id}
-                className={`flex items-center border-y ${
-                  item.id === activedCategoryData?.id
-                    ? 'border-gray-100 bg-c-gray-50'
-                    : 'border-transparent'
-                }`}
+                className={cn('flex items-center border-y', {
+                  'border-gray-100 bg-c-gray-50': item.id === activedCategoryData.id,
+                  'border-transparent': item.id !== activedCategoryData.id,
+                })}
               >
-                <Image
-                  className="mx-1 my-1"
-                  src={String(item.picture_link)}
-                  width={40}
-                  height={40}
-                  alt={item.name}
-                />
+                <Image className="mx-1 my-1" src={String(item.picture_link)} width={40} height={40} alt={item.name} />
                 <p
-                  className={`w-full truncate text-c-sm text-c-gray-500 ${
-                    item.id === activedCategoryData?.id
-                      ? 'font-extrabold text-c-royal-blue'
-                      : 'font-bold'
-                  }`}
+                  className={cn('w-full truncate text-c-sm text-c-gray-500', {
+                    'font-extrabold text-c-royal-blue': item.id === activedCategoryData.id,
+                    'font-bold': item.id !== activedCategoryData.id,
+                  })}
                 >
                   {item.name}
                 </p>

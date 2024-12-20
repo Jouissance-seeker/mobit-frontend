@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 import HumbergerMenu from './humberger-menu';
 import { useAtom } from 'jotai';
+import { cn } from '@/utils/cn';
 
 const Mobile: FC = (): JSX.Element => {
   // detect focused search field
@@ -32,7 +33,7 @@ const Mobile: FC = (): JSX.Element => {
   };
 
   // show humberger-menu handler
-  const [, setAtomStateIsShowHumbergerMenu] = useAtom<boolean>(
+  const [, setAtomStateIsShowHumbergerMenu] = useAtom(
     atomIsShowHumbergerMenu,
   );
 
@@ -42,7 +43,7 @@ const Mobile: FC = (): JSX.Element => {
   return (
     <div className="lg:hidden">
       <HumbergerMenu />
-      <div className={`flex flex-col overflow-hidden`}>
+      <div className={'flex flex-col overflow-hidden'}>
         {/* logo, right-side menu btn, profile btn */}
         <div className="bg-c-gradient-blue">
           <div className="container">
@@ -73,19 +74,27 @@ const Mobile: FC = (): JSX.Element => {
         </div>
         {/* search filed */}
         <div
-          className={`absolute left-0 right-0 transition-all duration-500 ${
-            detectedScrollDirection === 'top' ? 'top-[53px]' : '-top-28'
-          } ${
-            isFocusSearchField ? 'bg-transparent' : '-z-10 bg-c-gradient-blue'
-          }`}
+          className={
+            cn(
+              'absolute left-0 right-0 transition-all duration-500',
+              {
+                'top-[53px]': detectedScrollDirection === 'top',
+                '-top-28': detectedScrollDirection === 'bottom',
+              }
+            )
+          }
         >
           <div className="container">
             <div
-              className={`container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-c-royal-blue ${
-                isFocusSearchField
-                  ? '-top-10 bg-c-gray-100'
-                  : 'top-0 bg-[#3F41C5]'
-              }`}
+              className={
+                cn(
+                  'container relative mb-3.5 flex items-center gap-2.5 rounded-xl border-2 border-transparent p-3 transition-all duration-200 focus-within:border-c-royal-blue',
+                  {
+                    '-top-10 bg-c-gray-100': isFocusSearchField,
+                    'top-0 bg-[#3F41C5]': !isFocusSearchField,
+                  }
+                )
+              }
             >
               <div className="flex w-5 justify-center">
                 {isFocusSearchField ? (
@@ -94,7 +103,7 @@ const Mobile: FC = (): JSX.Element => {
                       showAndHideSearchResultHandler({ type: 'hide' })
                     }
                   >
-                    <IconChevron className={`h-[15px] fill-c-gray-400`} />
+                    <IconChevron className={'h-[15px] fill-c-gray-400'} />
                   </button>
                 ) : (
                   <IconMagnifier />
@@ -104,11 +113,15 @@ const Mobile: FC = (): JSX.Element => {
                 onFocus={() => showAndHideSearchResultHandler({ type: 'show' })}
                 spellCheck={false}
                 placeholder="جستجو در مبیت ..."
-                className={`w-full text-c-md ${
-                  isFocusSearchField
-                    ? 'placeholder:text-gray-400'
-                    : 'placeholder:text-gray-200'
-                }`}
+                className={
+                  cn(
+                    'w-full text-c-md placeholder-gray-200',
+                    {
+                      'placeholder-gray-400': isFocusSearchField,
+                      'text-c-gray-200': !isFocusSearchField,
+                    }
+                  )
+                }
               />
             </div>
           </div>

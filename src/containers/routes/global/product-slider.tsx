@@ -9,6 +9,7 @@ import { FC, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { cn } from '@/utils/cn';
 
 interface IProps {
   data: TProduct[];
@@ -65,9 +66,13 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
     <section className="container relative flex flex-col gap-4">
       {/* head */}
       <div
-        className={`flex h-[50px] items-center justify-between rounded-xl px-2.5 lg:h-[57px] lg:px-4 ${
-          props.type === 'special-offer' ? 'bg-c-red' : 'bg-c-gray-100'
-        }`}
+        className={cn(
+          'flex h-[50px] items-center justify-between rounded-xl px-2.5 lg:h-[57px] lg:px-4',
+          {
+            'bg-c-red': props.type === 'special-offer',
+            'bg-c-gray-100': props.type !== 'special-offer',
+          }
+        )}
       >
         {/* title */}
         <div className="flex items-center gap-1 lg:gap-2">
@@ -82,9 +87,10 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
             </>
           )}
           <h3
-            className={`text-c-sm font-extrabold lg:text-c-xl ${
-              props.type === 'special-offer' ? 'text-white' : 'text-black'
-            }`}
+            className={cn('text-c-sm font-extrabold lg:text-c-xl', {
+              'text-white': props.type === 'special-offer',
+              'text-black': props.type !== 'special-offer',
+            })}
           >
             {switchTitle(props.type)}
           </h3>
@@ -92,9 +98,13 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
         {/* time left from today [only props.type === 'special-offer'] */}
         {!!(props.type === 'special-offer') && (
           <div
-            className={`flex items-center gap-1.5 transition-all duration-300 lg:gap-2 ${
-              timeLeftFromDay ? 'visible opacity-100' : 'invisible opacity-0'
-            }`}
+            className={cn(
+              'flex items-center gap-1.5 transition-all duration-300 lg:gap-2',
+              {
+                'visible opacity-100': timeLeftFromDay,
+                'invisible opacity-0': !timeLeftFromDay,
+              }
+            )}
           >
             <div className="flex h-[34px] w-[34px] items-center justify-center rounded-lg bg-white p-3 text-c-md font-extrabold lg:h-11 lg:w-11 lg:rounded-xl lg:text-c-xl lg:font-black">
               {timeLeftFromDay &&
@@ -133,21 +143,24 @@ const ProductCardSlider: FC<IProps> = ({ ...props }): JSX.Element => {
         {/* see-all reference */}
         <Link
           href={switchSeeAllReference(props.type)}
-          className={`items-center gap-1.5 lg:gap-2 ${
-            props.type === 'special-offer' ? 'hidden sm:flex' : 'flex'
-          }`}
+          className={cn('items-center gap-1.5 lg:gap-2', {
+            'hidden sm:flex': props.type === 'special-offer',
+            'flex': props.type !== 'special-offer',
+          })}
         >
           <span
-            className={`text-c-sm font-semibold lg:font-bold ${
-              props.type === 'special-offer' ? 'text-white' : 'text-c-gray-400'
-            }`}
+            className={cn('text-c-sm font-semibold lg:font-bold', {
+              'text-white': props.type === 'special-offer',
+              'text-c-gray-400': props.type !== 'special-offer',
+            })}
           >
             مشاهده همه
           </span>
           <IconChevron
-            className={`h-[13px] rotate-180 ${
-              props.type === 'special-offer' ? 'fill-white' : 'fill-c-gray-400'
-            }`}
+            className={cn('h-[13px] rotate-180', {
+              'fill-white': props.type === 'special-offer',
+              'fill-c-gray-400': props.type !== 'special-offer',
+            })}
           />
         </Link>
       </div>
